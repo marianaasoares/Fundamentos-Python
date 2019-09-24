@@ -38,21 +38,25 @@ class Quadrado():
 
 saiu = False
 
+quadrado = Quadrado()
+desenha_quadrado = False
+lista = []
+
 while not saiu:
     for event in pygame.event.get():
-        if event.type == KEYDOWN and event.key == K_SPACE:
-            tela.fill(branco)
-            q = Quadrado()
-            q.desenha(tela)
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            tela.fill(branco)
-            q = Quadrado()
-            q.desenha(tela)
         if event.type == pygame.QUIT:
             saiu = True
-
-    tela.fill(branco)
-
+        if event.type == KEYDOWN and event.key == K_SPACE:
+            tela.fill(branco)
+            lista.append(pygame.mouse.get_pos())
+            desenha_quadrado = True
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            tela.fill(branco)
+            lista.append(pygame.mouse.get_pos())
+            desenha_quadrado = True
+        if desenha_quadrado == True:
+            quadrado.desenha(tela)
+            
     pygame.display.update()
 
 
