@@ -19,8 +19,8 @@ amarelo = (255, 255, 0)
 branco = (255, 255, 255)
 # dimensões do quadrado
 tamanho = 50
-pos_x = randint(0, (largura - tamanho) / 10) * 10
-pos_y = randint(0, (altura - tamanho) / 10) * 10
+#pos_x = randint(0, (largura - tamanho) / 10) * 10
+#pos_y = randint(0, (altura - tamanho) / 10) * 10
 
 # Classe quadrado
 class Quadrado():
@@ -41,17 +41,17 @@ saiu = False
 while not saiu:
     for event in pygame.event.get():
         if event.type == KEYDOWN and event.key == K_SPACE:
+            tela.fill(branco)
             q = Quadrado()
             q.desenha(tela)
         if event.type == pygame.MOUSEBUTTONDOWN:
-
-    if event.type == pygame.QUIT:
-        saiu = True
-
-
+            tela.fill(branco)
+            q = Quadrado()
+            q.desenha(tela)
+        if event.type == pygame.QUIT:
+            saiu = True
 
     tela.fill(branco)
-
 
     pygame.display.update()
 
