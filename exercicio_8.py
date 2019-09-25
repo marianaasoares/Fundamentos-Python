@@ -24,7 +24,7 @@ def botao(mensagem, x, y, raio, clica = None):
     if x+raio > posicao_mouse[0] > x and y+raio > posicao_mouse[1] > y:
         pygame.draw.circle(tela, verde_claro, [x, y], raio)
         if click[0] == 1 and clica != None:
-            if action == "cliquei":
+            if clica == "cliquei":
                 quadrado = Quadrado()
                 lista.append(quadrado)            
     else:
@@ -68,20 +68,6 @@ while not sair:
             sair = True
             
         tela.fill(branco)
-        
-        posicao_mouse = pygame.mouse.get_pos()
-        
-        if 300+50 > posicao_mouse[0] > 300 and 100+50 > posicao_mouse[1] > 100:
-            pygame.draw.circle(tela, verde_claro, [300, 100], 50)  
-        else:
-            pygame.draw.circle(tela, verde_escuro, [300, 100], 50)  
-                
-        fonte = pygame.font.Font("Roboto-Thin.ttf", 20)
-        texto = fonte.render("Clique", True, preto)
-        texto_retangulo = texto.get_rect()
-        texto_retangulo.center = ( (250+(100/2)), (75+(50/2)))
-        tela.blit(texto, texto_retangulo)
-        
         botao("Clique", 300, 100, 50, "cliquei")
         
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
