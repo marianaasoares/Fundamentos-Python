@@ -13,6 +13,7 @@ altura = 400
 verde_escuro = (155, 225, 152)
 verde_claro = (173, 223, 179)
 branco = (255, 255, 255)
+preto = (0, 0, 0)
 tela = pygame.display.set_mode((largura, altura))
 
       
@@ -30,9 +31,17 @@ while not sair:
         posicao_mouse = pygame.mouse.get_pos()
         
         if 250+100 > posicao_mouse[0] > 250 and 50+50 > posicao_mouse[1] > 50:
-            pygame.draw.rect(tela, verde_claro,(250, 50, 100, 50))
+            pygame.draw.circle(tela, verde_claro, [300, 100], 50)  
         else:
-            pygame.draw.rect(tela, verde_escuro,(250, 50, 100, 50))
+            pygame.draw.circle(tela, verde_escuro, [300, 100], 50)  
+            
+          
+            
+        fonte = pygame.font.Font("Roboto-Thin.ttf", 20)
+        texto = fonte.render("Clique", True, preto)
+        texto_retangulo = texto.get_rect()
+        texto_retangulo.center = ( (250+(100/2)), (75+(50/2)))
+        tela.blit(texto, texto_retangulo)
         
                 
     
