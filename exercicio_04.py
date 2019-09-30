@@ -2,9 +2,9 @@
 Imprima o vetor no final. Use listas.
 Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4]."""
 
-lista_numeros = []
+lista_numeros = [4, 3, 5, 1, 2]
 
-while lista_numeros.items() == 5:
-    n = int(input("Digite os números para o programa ordenar inversamente: "))
-    lista_numeros.append(n)
+for i in lista_numeros:
+    lista_numeros.
+
 print(lista_numeros)

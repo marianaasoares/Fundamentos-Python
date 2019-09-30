@@ -23,7 +23,8 @@ tela = pygame.display.set_mode((largura, altura))
 def botao(mensagem, x, y, raio, clica = None):
     posicao_mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
-        
+    teclado = pygame.key.get_pressed()
+    
     if x+raio > posicao_mouse[0] > x and y+raio > posicao_mouse[1] > y:
         pygame.draw.circle(tela, verde_claro, [x, y], raio)
         if click[0] == 1 and clica != None:
@@ -38,6 +39,25 @@ def botao(mensagem, x, y, raio, clica = None):
     texto_retangulo = texto.get_rect()
     texto_retangulo.center = ( (250+(100/2)), (75+(50/2)))
     tela.blit(texto, texto_retangulo)
+    
+    if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_d:
+                moveX = -5
+            if event.key == K_a:
+                moveX = 5
+            if event.key == K_w:
+                moveY = -5
+            if event.key == K_s:
+                moveY = 5
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_d:
+            moveX = 0
+        if event.key == K_a:
+            moveX = 0
+        if event.key == K_w:
+            moveY = 0
+        if event.key == K_s:
+            moveY = 0
 
 
 class Quadrado():
@@ -73,6 +93,7 @@ while not sair:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sair = True
+            quit()
             
         tela.fill(branco)
         botao("Clique", 300, 100, 50, "cliquei")

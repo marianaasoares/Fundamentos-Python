@@ -11,8 +11,15 @@ def lista_impares(primeira_tupla):
     return (impares)
 
 def tupla_pares(primeira_tupla):
-    return [n for n in primeira_tupla if n % 2 == 0 ]
-
+    pares = []
+    n = 0
+    for i in primeira_tupla:
+        if n % 2 == 0:
+            pares.append(i)
+        n = n + 1
+    return tuple(pares)   
+        
+            
 print(lista_impares(primeira_tupla))
 print(tupla_pares(primeira_tupla))
 
