@@ -29,12 +29,12 @@ for linha in reader:
     if i > 0:
         if int(linha [0]) > 2000: #Pega linha com os anos se for do século XXI 
             if linha[4] == "SWE" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
-                suecia=suecia+1 #incrementa na variável do país
+                suecia=suecia+1 #armazena as informações na variável do país
                 print(linha)   #printa a linha
             if linha[4] == "DEN" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
-                dinamarca=dinamarca+1  #incrementa na variável do país
+                dinamarca=dinamarca+1  #armazena as informações na variável do país
                 print(linha) #printa a linha
             if linha[4] == "NOR" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
-                noruega=noruega+1 #incrementa na variável do país
+                noruega=noruega+1 #armazena as informações na variável do país
                 print(linha)  #printa a linha     
     i = i+1 
