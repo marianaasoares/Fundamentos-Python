@@ -9,15 +9,32 @@ Hóquei sobre o gelo (ice hockey)
 Para cada esporte, considere todas as modalidades, tanto no masculino quanto no feminino. Sua resposta deve imprimir um relatório mostrando o total de medalhas de cada um dos países e em que esporte, ano, cidade e gênero (masculino ou feminino) cada medalha foi obtida."""
 
 import requests
-#from bs4 import BeautifulSoup
-#import re
 import csv
+url = "https://sites.google.com/site/dr2fundamentospython/arquivos/Winter_Olympics_Medals.csv"
+r = requests.get(url)
+text = r.text
+reader = csv.reader(r.iter_lines(decode_unicode=True), delimiter=',')
 
-url="https://sites.google.com/site/dr2fundamentospython/arquivos/Winter_Olympics_Medals.csv"
+#incrementador
+i=0
+# Países Nórdicos solicitados
+suecia=0
+dinamarca=0
+noruega=0
 
-import csv
-with open('https://sites.google.com/site/dr2fundamentospython/arquivos/Winter_Olympics_Medals.csv') as csvfile:
-    csv_content = csv.reader(csvfile, delimiter=',')
-    for row in csv_content:
-      if row[2] == '2007':
-          print(row[2], row[10])
+#Array com os esportes solicitados
+Esportes = ["Curling", "Skiing","Skating","Ice Hockey"]
+
+for linha in reader:
+    if i > 0:
+        if int(linha [0]) > 2000: #Pega linha com os anos se for do século XXI 
+            if linha[4] == "SWE" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
+                suecia=suecia+1 #incrementa na variável do país
+                print(linha)   #printa a linha
+            if linha[4] == "DEN" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
+                dinamarca=dinamarca+1  #incrementa na variável do país
+                print(linha) #printa a linha
+            if linha[4] == "NOR" and linha[7] == "Gold" and linha [2] in Esportes: #Pega o nome do pais + se tem medalha de ouro + o esporte corresponte a array criado
+                noruega=noruega+1 #incrementa na variável do país
+                print(linha)  #printa a linha     
+    i = i+1 
