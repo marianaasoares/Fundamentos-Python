@@ -1,12 +1,12 @@
 from threading import Thread
 import time
 
-lista = [1.3, 10.4, 40.0, 59.87, 33.01, 101,4]*100
+lista = [1.3, 10.4, 40.0, 59.87, 33.01, 101,4]*10000
 tamanho = len(lista)
 
 t_inicio = float(time.time())
 
-#for vez in [100000, 100000, 100000,]:
+#for vez in [100000, 100000, 100000]:
     #lista = [1.3, 10.4, 40.0, 59.87, 33.01, 101,4]*vez
     
 
@@ -28,7 +28,7 @@ for t in minhas_threads:
     t.join()
 
 t_fim = float(time.time())
-
+ 
 #Tempo sequencial 
 lista = [1.3, 10.4, 40.0, 59.87, 33.01, 101,4]*10000
 t_seq_inicio = float(time.time())
